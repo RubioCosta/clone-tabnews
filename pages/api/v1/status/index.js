@@ -21,6 +21,14 @@ export default async function status(req, res) {
   const databaseOpenedConnectionValue =
     databaseOpenedConnectionResult.rows[0].count;
 
+  console.log("LOGS: ", {
+    database: {
+      version: databaseVersionValue,
+      max_connections: Number(databaseMaxConnectionsValue),
+      opened_connections: databaseOpenedConnectionValue,
+    },
+  })
+
   res.status(200).json({
     update_at: updateAt,
     dependencies: {
