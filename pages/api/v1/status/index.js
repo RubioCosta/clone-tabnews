@@ -37,6 +37,7 @@ export default async function status(req, res) {
     const publicErrorObject = new InternalServerError({
       cause: error,
     });
+
     console.error(publicErrorObject);
     res.status(500).json(publicErrorObject);
   }
